@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why BN Hospital - Premier Private Healthcare in London</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #005EB8;
+            --primary-dark: #003087;
+            --secondary: #41B6E6;
+            --accent: #FFB81C;
+            --text: #333333;
+            --text-light: #666666;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #e0e0e0;
+            --dark-gray: #757575;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent), #ffcc5c);
+            color: var(--primary-dark);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 184, 28, 0.4);
+            position: relative;
+            overflow: hidden;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 184, 28, 0.6);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 94, 184, 0.3);
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 94, 184, 0.4);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+            margin-top: -5px;
+        }
+
+        .navbar ul {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin-left: 25px;
+        }
+
+        .navbar ul li a {
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary);
+        }
+
+        .navbar ul li a.btn-primary {
+            color: var(--primary-dark);
+        }
+
+        .navbar ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .navbar ul li a:hover:after {
+            width: 100%;
+        }
+
+        .navbar ul li a.btn-primary:after {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0, 94, 184, 0.85), rgba(0, 48, 135, 0.9)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* Excellence Grid */
+        .excellence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .excellence-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary);
+        }
+
+        .excellence-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .excellence-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .excellence-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .excellence-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            margin: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        /* Why BN Hospital Section */
+        .why-bn {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .why-bn-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-bn-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .why-bn-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .why-bn-img:hover img {
+            transform: scale(1.03);
+        }
+
+        .why-bn-text h2 {
+            font-size: 2.3rem;
+            margin-bottom: 25px;
+        }
+
+        .why-bn-text > p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .why-bn-list {
+            margin-top: 20px;
+        }
+
+        .why-bn-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .why-bn-list li:hover {
+            background: var(--white);
+            transform: translateX(5px);
+        }
+
+        .why-bn-list i {
+            color: var(--secondary);
+            margin-right: 15px;
+            margin-top: 5px;
+            font-size: 1.2rem;
+        }
+
+        .why-bn-list h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .why-bn-list p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 94, 184, 0.03), rgba(0, 94, 184, 0.03));
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 35px 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .testimonial-author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .testimonial-author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(0, 94, 184, 0.9), rgba(0, 48, 135, 0.9)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--white);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(135deg, #d32f2f, #b71c1c);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1a2530;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-info i {
+            margin-right: 12px;
+            color: var(--accent);
+            margin-top: 5px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+        }
+
+        .footer-links a {
+            margin-left: 25px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .navbar ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .why-bn-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .footer-links {
+                margin-top: 15px;
+            }
+            
+            .footer-links a {
+                margin: 0 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 100px 0;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-content {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .excellence-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        <div class="container">
+            <i class="fas fa-phone-alt"></i> For Medical Emergencies: Call 020 7123 4567 | 24/7 Emergency Department
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>BN Hospital London</h1>
+                    <p>Premier Private Healthcare</p>
+                </div>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="why-bn.html" class="active">Why BN Hospital</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="treatments.html">Treatments</a></li>
+                    <li><a href="book-online.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Why BN Hospital London</h1>
+                <p>Discover what makes us the premier choice for private healthcare in the heart of London</p>
+            </div>
+        </section>
+
+        <!-- Page Content -->
+        <section class="page-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Excellence in Healthcare</h2>
+                    <p>At BN Hospital London, we combine clinical excellence with compassionate care to deliver outstanding patient experiences</p>
+                </div>
+
+                <div class="excellence-grid">
+                    <div class="excellence-card">
+                        <div class="excellence-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>World-Class Specialists</h3>
+                        <p>Our consultants are leaders in their fields, many holding positions at London's top teaching hospitals and bringing unparalleled expertise to patient care.</p>
+                    </div>
+                    <div class="excellence-card">
+                        <div class="excellence-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3>Advanced Diagnostics</h3>
+                        <p>We utilize cutting-edge diagnostic technology including MRI, CT scanning, and advanced laboratory services for accurate and timely diagnosis.</p>
+                    </div>
+                    <div class="excellence-card">
+                        <div class="excellence-icon">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                        <h3>Minimally Invasive Surgery</h3>
+                        <p>Our surgical teams specialize in minimally invasive techniques that reduce recovery times and improve patient outcomes.</p>
+                    </div>
+                    <div class="excellence-card">
+                        <div class="excellence-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Comprehensive Care</h3>
+                        <p>From initial consultation through treatment and recovery, we provide seamless, coordinated care across all medical specialties.</p>
+                    </div>
+                    <div class="excellence-card">
+                        <div class="excellence-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Minimal Waiting Times</h3>
+                        <p>We understand that timely access to healthcare is crucial, which is why we offer prompt appointments and minimal waiting times for all services.</p>
+                    </div>
+                    <div class="excellence-card">
+                        <div class="excellence-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Patient Safety</h3>
+                        <p>Our rigorous safety protocols and infection control measures ensure the highest standards of patient safety throughout our facility.</p>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="stats">
+                    <div class="container">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">35+</div>
+                                <div class="stat-text">Years of Excellence</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">150+</div>
+                                <div class="stat-text">Consultant Specialists</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">50k+</div>
+                                <div class="stat-text">Patients Treated Annually</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-text">Patient Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why BN Hospital Section -->
+                <div class="why-bn">
+                    <div class="container">
+                        <div class="why-bn-content">
+                            <div class="why-bn-img">
+                                <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="BN Hospital London Facility">
+                            </div>
+                            <div class="why-bn-text">
+                                <h2>The BN Hospital Difference</h2>
+                                <p>At BN Hospital London, we combine medical excellence with compassionate care to deliver outstanding healthcare experiences. Our patient-centered approach ensures that you receive personalized attention at every step of your healthcare journey.</p>
+                                
+                                <ul class="why-bn-list">
+                                    <li>
+                                        <i class="fas fa-award"></i>
+                                        <div>
+                                            <h4>Clinical Excellence</h4>
+                                            <p>Rigorous quality standards and evidence-based practices ensure the highest level of patient care and safety.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-user-friends"></i>
+                                        <div>
+                                            <h4>Multidisciplinary Teams</h4>
+                                            <p>Collaborative approach with specialists across different fields working together for comprehensive care.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-clock"></i>
+                                        <div>
+                                            <h4>Minimal Waiting Times</h4>
+                                            <p>Prompt access to consultations, diagnostics, and treatments with flexible scheduling options.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-shield-alt"></i>
+                                        <div>
+                                            <h4>Patient Safety First</h4>
+                                            <p>Stringent infection control measures and safety protocols to protect patients and staff.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonials Section -->
+                <div class="testimonials">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Patient Experiences</h2>
+                            <p>Hear from our patients about their journey with BN Hospital London</p>
+                        </div>
+                        <div class="testimonials-grid">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    <p>"The care I received at BN Hospital London was exceptional. The doctors took time to explain everything and made me feel comfortable throughout my treatment. The facilities are world-class."</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="testimonial-author-info">
+                                        <h4>Sarah Johnson</h4>
+                                        <p>Physiotherapy Patient</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    <p>"I had my back surgery at BN Hospital London and the results have been life-changing. The surgical team was skilled and the aftercare was excellent. I would highly recommend them."</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="testimonial-author-info">
+                                        <h4>Michael Roberts</h4>
+                                        <p>Back Pain Treatment</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    <p>"The urology department provided comprehensive care with the latest technology. I'm grateful for their expertise and compassionate approach. The Harley Street location is very convenient."</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="testimonial-author-info">
+                                        <h4>David Wilson</h4>
+                                        <p>Urology Patient</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="cta">
+                    <div class="container">
+                        <div class="cta-content">
+                            <h2>Experience the BN Hospital Difference</h2>
+                            <p>Join thousands of satisfied patients who have chosen BN Hospital London for their healthcare needs</p>
+                            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                                <a href="book-online.html" class="btn-primary"><i class="fas fa-calendar-plus"></i> Book Appointment</a>
+                                <a href="treatments.html" class="btn-secondary"><i class="fas fa-stethoscope"></i> Our Treatments</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BN Hospital London</h3>
+                    <p>Providing exceptional private healthcare services with compassion and cutting-edge technology in the heart of London since 1985.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="why-bn.html"><i class="fas fa-chevron-right"></i> Why BN Hospital</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="history.html"><i class="fas fa-chevron-right"></i> Our History</a></li>
+                        <li><a href="facilities.html"><i class="fas fa-chevron-right"></i> Facilities</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Treatments</a></li>
+                        <li><a href="book-online.html"><i class="fas fa-chevron-right"></i> Book Online</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Medical Services</h4>
+                    <ul>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Private GP</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Urology</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Back Pain Treatment</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> General Surgery</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Physiotherapy</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Emergency Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Harley Street, London W1G 8AB</p>
+                        <p><i class="fas fa-phone"></i> 020 7123 4567</p>
+                        <p><i class="fas fa-envelope"></i> info@bnhospitallondon.com</p>
+                        <p><i class="fas fa-clock"></i> 24/7 Emergency Services</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 BN Hospital London. All Rights Reserved.</p>
+                    <div class="footer-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="sitemap.html">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navbar = document.querySelector('.navbar ul');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navbar.style.display = navbar.style.display === 'flex' ? 'none' : 'flex';
+                mobileMenuBtn.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.navbar ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) {
+                        navbar.style.display = 'none';
+                        mobileMenuBtn.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Adjust menu for window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    navbar.style.display = 'flex';
+                } else {
+                    navbar.style.display = 'none';
+                }
+            });
+
+            // Add animation to elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll('.excellence-card, .testimonial-card, .stat-card, .why-bn-list li');
+            animateElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+
+            // Add staggered animation for cards
+            const excellenceCards = document.querySelectorAll('.excellence-card');
+            excellenceCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            // Add staggered animation for testimonial cards
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            testimonialCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Heart Assessment - BN Hospital London</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #005EB8;
+            --primary-dark: #003087;
+            --secondary: #41B6E6;
+            --accent: #FFB81C;
+            --text: #333333;
+            --text-light: #666666;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #e0e0e0;
+            --dark-gray: #757575;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent), #ffcc5c);
+            color: var(--primary-dark);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 184, 28, 0.4);
+            position: relative;
+            overflow: hidden;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 184, 28, 0.6);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 94, 184, 0.3);
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 94, 184, 0.4);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+            margin-top: -5px;
+        }
+
+        .navbar ul {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin-left: 25px;
+        }
+
+        .navbar ul li a {
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary);
+        }
+
+        .navbar ul li a.btn-primary {
+            color: var(--primary-dark);
+        }
+
+        .navbar ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .navbar ul li a:hover:after {
+            width: 100%;
+        }
+
+        .navbar ul li a.btn-primary:after {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0, 94, 184, 0.85), rgba(0, 48, 135, 0.9)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(135deg, #d32f2f, #b71c1c);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1a2530;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-info i {
+            margin-right: 12px;
+            color: var(--accent);
+            margin-top: 5px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+        }
+
+        .footer-links a {
+            margin-left: 25px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Scheduling Page Styles */
+        .scheduling-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .calendar-section {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .calendar-header h3 {
+            margin-bottom: 0;
+            font-size: 1.5rem;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .calendar-nav button {
+            background: var(--light);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .calendar-nav button:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .calendar-day {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .calendar-day:hover {
+            background-color: var(--light);
+        }
+
+        .calendar-day.selected {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .calendar-day.available:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+
+        .calendar-day.unavailable {
+            color: var(--dark-gray);
+            cursor: not-allowed;
+        }
+
+        .calendar-day.unavailable:hover {
+            background-color: transparent;
+        }
+
+        .time-slots {
+            margin-top: 30px;
+        }
+
+        .time-slots h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .time-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .time-slot {
+            padding: 12px;
+            background-color: var(--light);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .time-slot:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        .time-slot.selected {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .time-slot.unavailable {
+            background-color: #f5f5f5;
+            color: var(--dark-gray);
+            cursor: not-allowed;
+        }
+
+        .time-slot.unavailable:hover {
+            background-color: #f5f5f5;
+            color: var(--dark-gray);
+        }
+
+        .appointment-form {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .appointment-form h3 {
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 94, 184, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .assessment-types {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .assessment-types h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .assessment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .assessment-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .assessment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .assessment-card.selected {
+            border-color: var(--primary);
+            background-color: rgba(0, 94, 184, 0.05);
+        }
+
+        .assessment-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .assessment-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .assessment-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .confirmation-section {
+            text-align: center;
+            padding: 60px 0;
+            display: none;
+        }
+
+        .confirmation-icon {
+            font-size: 5rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .confirmation-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-section p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .appointment-details {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            text-align: left;
+        }
+
+        .appointment-details h4 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .detail-value {
+            color: var(--text-light);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .navbar ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .scheduling-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .footer-links {
+                margin-top: 15px;
+            }
+            
+            .footer-links a {
+                margin: 0 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 100px 0;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-content {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .time-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .assessment-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .calendar-section,
+            .appointment-form {
+                padding: 25px;
+            }
+            
+            .time-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        <div class="container">
+            <i class="fas fa-phone-alt"></i> For  Emergencies: Call 020 7123 4567 | 24/7 Cardiac Emergency Department
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>BN Hospital London</h1>
+                    <p>Premier Private Healthcare</p>
+                </div>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="why-bn.html">Why BN Hospital</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="treatments.html">Treatments</a></li>
+                    <li><a href="book-online.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Schedule Your  Assessment</h1>
+                <p>Book your comprehensive health evaluation with our expert  team</p>
+            </div>
+        </section>
+
+        <!-- Page Content -->
+        <section class="page-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Book Your  Assessment</h2>
+                    <p>Select your preferred date, time, and assessment type</p>
+                </div>
+
+                <!-- Scheduling Interface -->
+                <div class="scheduling-container">
+                    <div class="calendar-section">
+                        <div class="calendar-header">
+                            <h3>Select Date</h3>
+                            <div class="calendar-nav">
+                                <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                                <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="calendar-days" id="calendar-days">
+                            <!-- Calendar days will be populated by JavaScript -->
+                        </div>
+                        <div class="time-slots">
+                            <h4>Available Time Slots</h4>
+                            <div class="time-grid" id="time-slots">
+                                <!-- Time slots will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="appointment-form">
+                        <h3>Patient Information</h3>
+                        <form id="appointment-booking-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" name="first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" name="last-name" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reason">Reason for Assessment</label>
+                                <select id="reason" name="reason" required>
+                                    <option value="">Select a reason</option>
+                                    <option value="routine">Routine Check-up</option>
+                                    <option value="symptoms">Experiencing Symptoms</option>
+                                    <option value="family-history">Family History of  Disease</option>
+                                    <option value="follow-up">Follow-up Appointment</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Additional Notes (Optional)</label>
+                                <textarea id="notes" name="notes" rows="4"></textarea>
+                            </div>
+
+                            <div class="assessment-types">
+                                <h3>Select Assessment Type</h3>
+                                <div class="assessment-cards">
+                                    <div class="assessment-card" data-type="basic">
+                                        <h4>Basic  Health Assessment</h4>
+                                        <p>Comprehensive evaluation including ECG, blood pressure, cholesterol screening, and consultation.</p>
+                                        <div class="assessment-price">£250</div>
+                                    </div>
+                                    <div class="assessment-card" data-type="advanced">
+                                        <h4>Advanced Health Assessment</h4>
+                                        <p>Includes echocardiogram, stress test, advanced blood work, and detailed consultation.</p>
+                                        <div class="assessment-price">£450</div>
+                                    </div>
+                                    <div class="assessment-card" data-type="executive">
+                                        <h4>Executive Health Screening</h4>
+                                        <p>Comprehensive screening including cardiac CT, all advanced tests, and personalized prevention plan.</p>
+                                        <div class="assessment-price">£750</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-primary" style="width: 100%;">
+                                <i class="fas fa-calendar-plus"></i> Book  Assessment
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Confirmation Section (initially hidden) -->
+                <div class="confirmation-section" id="confirmation-section">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Appointment Confirmed!</h2>
+                    <p>Your heart assessment has been successfully scheduled. We look forward to helping you maintain optimal heart health.</p>
+                    
+                    <div class="appointment-details">
+                        <h4>Appointment Details</h4>
+                        <div class="detail-row">
+                            <span class="detail-label">Date:</span>
+                            <span class="detail-value" id="confirm-date">Not set</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Time:</span>
+                            <span class="detail-value" id="confirm-time">Not set</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Assessment Type:</span>
+                            <span class="detail-value" id="confirm-type">Not set</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Patient:</span>
+                            <span class="detail-value" id="confirm-patient">Not set</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                        <a href="book-online.html" class="btn-secondary"><i class="fas fa-arrow-left"></i> Back to appoinment</a>
+                        <a href="index.html" class="btn-primary"><i class="fas fa-home"></i> Return to Home</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BN Hospital London</h3>
+                    <p>Providing exceptional private healthcare services with compassion and cutting-edge technology in the heart of London since 1985.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="why-bn.html"><i class="fas fa-chevron-right"></i> Why BN Hospital</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="facilities.html"><i class="fas fa-chevron-right"></i> Facilities</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Treatments</a></li>
+                        <li><a href="book-online.html"><i class="fas fa-chevron-right"></i> Book Online</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Cardiology Services</h4>
+                    <ul>
+                        <li><a href="cardiology.html#conditions"><i class="fas fa-chevron-right"></i> Heart Conditions</a></li>
+                        <li><a href="cardiology.html#diagnostics"><i class="fas fa-chevron-right"></i> Cardiac Diagnostics</a></li>
+                        <li><a href="cardiology.html#treatments"><i class="fas fa-chevron-right"></i> Cardiac Treatments</a></li>
+                        <li><a href="cardiology.html#prevention"><i class="fas fa-chevron-right"></i> Cardiac Prevention</a></li>
+                        <li><a href="cardiology.html#specialists"><i class="fas fa-chevron-right"></i> Our Cardiologists</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Harley Street, London W1G 8AB</p>
+                        <p><i class="fas fa-phone"></i> 020 7123 4567</p>
+                        <p><i class="fas fa-envelope"></i> cardiology@bnhospitallondon.com</p>
+                        <p><i class="fas fa-clock"></i> 24/7 Cardiac Emergency Services</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 BN Hospital London. All Rights Reserved.</p>
+                    <div class="footer-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="sitemap.html">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navbar = document.querySelector('.navbar ul');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navbar.style.display = navbar.style.display === 'flex' ? 'none' : 'flex';
+                mobileMenuBtn.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.navbar ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) {
+                        navbar.style.display = 'none';
+                        mobileMenuBtn.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Calendar functionality
+            let currentDate = new Date();
+            let selectedDate = null;
+            let selectedTime = null;
+            let selectedAssessment = null;
+            
+            const calendarDays = document.getElementById('calendar-days');
+            const timeSlots = document.getElementById('time-slots');
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+            const assessmentCards = document.querySelectorAll('.assessment-card');
+            const bookingForm = document.getElementById('appointment-booking-form');
+            const confirmationSection = document.getElementById('confirmation-section');
+            
+            // Initialize calendar
+            renderCalendar(currentDate);
+            
+            // Event listeners for calendar navigation
+            prevMonthBtn.addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar(currentDate);
+            });
+            
+            nextMonthBtn.addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar(currentDate);
+            });
+            
+            // Event listeners for assessment cards
+            assessmentCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    assessmentCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedAssessment = this.getAttribute('data-type');
+                });
+            });
+            
+            // Form submission
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!selectedDate || !selectedTime || !selectedAssessment) {
+                    alert('Please select a date, time, and assessment type before booking.');
+                    return;
+                }
+                
+                // In a real application, you would send this data to a server
+                // For this demo, we'll just show the confirmation
+                
+                // Set confirmation details
+                document.getElementById('confirm-date').textContent = formatDate(selectedDate);
+                document.getElementById('confirm-time').textContent = selectedTime;
+                document.getElementById('confirm-type').textContent = getAssessmentName(selectedAssessment);
+                document.getElementById('confirm-patient').textContent = 
+                    document.getElementById('first-name').value + ' ' + 
+                    document.getElementById('last-name').value;
+                
+                // Hide scheduling form and show confirmation
+                document.querySelector('.scheduling-container').style.display = 'none';
+                confirmationSection.style.display = 'block';
+                
+                // Scroll to confirmation
+                confirmationSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Calendar rendering function
+            function renderCalendar(date) {
+                const year = date.getFullYear();
+                const month = date.getMonth();
+                
+                // Update calendar header
+                document.querySelector('.calendar-header h3').textContent = 
+                    date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+                
+                // Clear previous calendar
+                calendarDays.innerHTML = '';
+                
+                // Get first day of month and last day of month
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                
+                // Get day of week for first day (0 = Sunday, 6 = Saturday)
+                const firstDayIndex = firstDay.getDay();
+                
+                // Get day of week for last day
+                const lastDayIndex = lastDay.getDay();
+                
+                // Get last day of previous month
+                const prevLastDay = new Date(year, month, 0).getDate();
+                
+                // Add days from previous month
+                for (let i = firstDayIndex; i > 0; i--) {
+                    const day = prevLastDay - i + 1;
+                    const dayElement = document.createElement('div');
+                    dayElement.classList.add('calendar-day', 'unavailable');
+                    dayElement.textContent = day;
+                    calendarDays.appendChild(dayElement);
+                }
+                
+                // Add days from current month
+                for (let i = 1; i <= lastDay.getDate(); i++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.classList.add('calendar-day', 'available');
+                    dayElement.textContent = i;
+                    
+                    // Create date object for this day
+                    const dayDate = new Date(year, month, i);
+                    
+                    // Check if this day is in the past
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+                    
+                    if (dayDate < today) {
+                        dayElement.classList.add('unavailable');
+                        dayElement.classList.remove('available');
+                    } else {
+                        // Add click event for available days
+                        dayElement.addEventListener('click', function() {
+                            // Remove selected class from all days
+                            document.querySelectorAll('.calendar-day').forEach(day => {
+                                day.classList.remove('selected');
+                            });
+                            
+                            // Add selected class to clicked day
+                            this.classList.add('selected');
+                            
+                            // Store selected date
+                            selectedDate = dayDate;
+                            
+                            // Generate time slots for selected date
+                            generateTimeSlots(dayDate);
+                        });
+                    }
+                    
+                    calendarDays.appendChild(dayElement);
+                }
+                
+                // Add days from next month
+                for (let i = lastDayIndex + 1, day = 1; i < 7; i++, day++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.classList.add('calendar-day', 'unavailable');
+                    dayElement.textContent = day;
+                    calendarDays.appendChild(dayElement);
+                }
+            }
+            
+            // Generate time slots for selected date
+            function generateTimeSlots(date) {
+                // Clear previous time slots
+                timeSlots.innerHTML = '';
+                
+                // Define available time slots (in a real app, this would come from the server)
+                const availableSlots = [
+                    '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM',
+                    '11:00 AM', '11:30 AM', '01:00 PM', '01:30 PM',
+                    '02:00 PM', '02:30 PM', '03:00 PM', '03:30 PM'
+                ];
+                
+                // Create time slot elements
+                availableSlots.forEach(slot => {
+                    const timeElement = document.createElement('div');
+                    timeElement.classList.add('time-slot');
+                    timeElement.textContent = slot;
+                    
+                    timeElement.addEventListener('click', function() {
+                        // Remove selected class from all time slots
+                        document.querySelectorAll('.time-slot').forEach(time => {
+                            time.classList.remove('selected');
+                        });
+                        
+                        // Add selected class to clicked time slot
+                        this.classList.add('selected');
+                        
+                        // Store selected time
+                        selectedTime = slot;
+                    });
+                    
+                    timeSlots.appendChild(timeElement);
+                });
+            }
+            
+            // Format date for display
+            function formatDate(date) {
+                return date.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+            }
+            
+            // Get assessment name from type
+            function getAssessmentName(type) {
+                switch(type) {
+                    case 'basic':
+                        return 'Basic Heart Health Assessment';
+                    case 'advanced':
+                        return 'Advanced Cardiac Assessment';
+                    case 'executive':
+                        return 'Executive Heart Screening';
+                    default:
+                        return 'Unknown';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

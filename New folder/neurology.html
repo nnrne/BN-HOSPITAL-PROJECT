@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurology Department - BN Hospital London</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #005EB8;
+            --primary-dark: #003087;
+            --secondary: #41B6E6;
+            --accent: #FFB81C;
+            --text: #333333;
+            --text-light: #666666;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #e0e0e0;
+            --dark-gray: #757575;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent), #ffcc5c);
+            color: var(--primary-dark);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 184, 28, 0.4);
+            position: relative;
+            overflow: hidden;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 184, 28, 0.6);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 94, 184, 0.3);
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 94, 184, 0.4);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+            margin-top: -5px;
+        }
+
+        .navbar ul {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin-left: 25px;
+        }
+
+        .navbar ul li a {
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary);
+        }
+
+        .navbar ul li a.btn-primary {
+            color: var(--primary-dark);
+        }
+
+        .navbar ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .navbar ul li a:hover:after {
+            width: 100%;
+        }
+
+        .navbar ul li a.btn-primary:after {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0, 94, 184, 0.85), rgba(0, 48, 135, 0.9)), url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* Quick Navigation */
+        .quick-nav {
+            background: linear-gradient(135deg, var(--light), #e9ecef);
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+
+        .quick-nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-pill {
+            display: inline-flex;
+            align-items: center;
+            background: var(--white);
+            color: var(--primary);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+        }
+
+        .nav-pill:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .nav-pill i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Treatments Grid */
+        .treatments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .treatment-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 100px;
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .treatment-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .treatment-content {
+            padding: 30px;
+        }
+
+        .treatment-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .treatment-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .treatment-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .treatment-features {
+            margin-top: 20px;
+        }
+
+        .treatment-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .treatment-features i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Specialized Treatments */
+        .specialized-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 94, 184, 0.03), rgba(0, 94, 184, 0.03));
+        }
+
+        .specialized-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .specialized-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+
+        .specialized-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .specialized-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .specialized-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .specialized-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Treatment Approach */
+        .approach-section {
+            padding: 80px 0;
+        }
+
+        .approach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .approach-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .approach-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .approach-img:hover img {
+            transform: scale(1.03);
+        }
+
+        .approach-text h2 {
+            font-size: 2.3rem;
+            margin-bottom: 25px;
+        }
+
+        .approach-text > p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .approach-list {
+            margin-top: 20px;
+        }
+
+        .approach-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .approach-list li:hover {
+            background: var(--white);
+            transform: translateX(5px);
+        }
+
+        .approach-list i {
+            color: var(--secondary);
+            margin-right: 15px;
+            margin-top: 5px;
+            font-size: 1.2rem;
+        }
+
+        .approach-list h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .approach-list p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            margin: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        /* Specialists Section */
+        .specialists-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 94, 184, 0.03), rgba(0, 94, 184, 0.03));
+        }
+
+        .specialists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .specialist-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 35px 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .specialist-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .specialist-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 2.5rem;
+            overflow: hidden;
+        }
+
+        .specialist-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .specialist-details h4 {
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .specialist-details p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .specialist-specialty {
+            display: inline-block;
+            background: var(--light);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(0, 94, 184, 0.9), rgba(0, 48, 135, 0.9)), url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--white);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(135deg, #d32f2f, #b71c1c);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1a2530;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-info i {
+            margin-right: 12px;
+            color: var(--accent);
+            margin-top: 5px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+        }
+
+        .footer-links a {
+            margin-left: 25px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Neurology Specific Styles */
+        .neurology-hero {
+            background: linear-gradient(rgba(0, 94, 184, 0.85), rgba(0, 48, 135, 0.9)), url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+        }
+
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .condition-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+
+        .condition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .condition-card h3 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .condition-card h3 i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .condition-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .diagnostic-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 94, 184, 0.03), rgba(0, 94, 184, 0.03));
+        }
+
+        .diagnostic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .diagnostic-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .diagnostic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .diagnostic-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diagnostic-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .diagnostic-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Brain Health Banner */
+        .brain-health-banner {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        /* Research Section */
+        .research-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(142, 68, 173, 0.05), rgba(155, 89, 182, 0.05));
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .navbar ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .approach-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .quick-nav-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .footer-links {
+                margin-top: 15px;
+            }
+            
+            .footer-links a {
+                margin: 0 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 100px 0;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-content {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .treatments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .specialized-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .specialists-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .conditions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .diagnostic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        <div class="container">
+            <i class="fas fa-phone-alt"></i> For Neurological Emergencies: Call 020 7123 4567 | 24/7 Stroke & Neurology Emergency Care
+        </div>
+    </div>
+
+    <!-- Brain Health Banner -->
+    <div class="brain-health-banner">
+        <div class="container">
+            <i class="fas fa-brain"></i> Advanced Brain & Nervous System Care - Comprehensive Neurological Solutions
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>BN Hospital London</h1>
+                    <p>Premier Private Healthcare</p>
+                </div>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="why-bn.html">Why BN Hospital</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="treatments.html" class="active">Treatments</a></li>
+                    <li><a href="book-online.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero neurology-hero">
+            <div class="container">
+                <h1>Neurology & Neurosurgery</h1>
+                <p>Comprehensive brain, spine, and nervous system care with cutting-edge technology and world-renowned specialists</p>
+                <a href="book-online.html" class="btn-primary"><i class="fas fa-brain"></i> Schedule Neurological Assessment</a>
+            </div>
+        </section>
+
+        <!-- Page Content -->
+        <section class="page-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Comprehensive Neurological Care</h2>
+                    <p>From diagnosis to treatment and rehabilitation, our neurology department provides complete nervous system care</p>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div class="quick-nav">
+                    <div class="container">
+                        <div class="quick-nav-container">
+                            <a href="#conditions" class="nav-pill">
+                                <i class="fas fa-brain"></i> Neurological Conditions
+                            </a>
+                            <a href="#diagnostics" class="nav-pill">
+                                <i class="fas fa-search"></i> Diagnostics
+                            </a>
+                            <a href="#treatments" class="nav-pill">
+                                <i class="fas fa-procedures"></i> Treatments
+                            </a>
+                            <a href="#specialists" class="nav-pill">
+                                <i class="fas fa-user-md"></i> Our Specialists
+                            </a>
+                            <a href="#rehabilitation" class="nav-pill">
+                                <i class="fas fa-dumbbell"></i> Rehabilitation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neurological Conditions Section -->
+                <div class="section-title" id="conditions">
+                    <h2>Neurological Conditions We Treat</h2>
+                    <p>Comprehensive care for a wide range of brain, spine, and nervous system disorders</p>
+                </div>
+                <div class="conditions-grid">
+                    <div class="condition-card">
+                        <h3><i class="fas fa-brain"></i> Stroke & Cerebrovascular</h3>
+                        <p>Comprehensive stroke care including emergency intervention, rehabilitation, and prevention strategies.</p>
+                    </div>
+                    <div class="condition-card">
+                        <h3><i class="fas fa-head-side-virus"></i> Brain Tumors</h3>
+                        <p>Multidisciplinary approach to benign and malignant brain tumors with advanced surgical and radiation options.</p>
+                    </div>
+                    <div class="condition-card">
+                        <h3><i class="fas fa-seedling"></i> Epilepsy & Seizures</h3>
+                        <p>Comprehensive epilepsy management including medication, dietary therapy, and surgical options.</p>
+                    </div>
+                    <div class="condition-card">
+                        <h3><i class="fas fa-spine"></i> Spinal Disorders</h3>
+                        <p>Treatment for herniated discs, spinal stenosis, degenerative disc disease, and spinal cord injuries.</p>
+                    </div>
+                    <div class="condition-card">
+                        <h3><i class="fas fa-walking"></i> Movement Disorders</h3>
+                        <p>Specialized care for Parkinson's disease, essential tremor, dystonia, and other movement disorders.</p>
+                    </div>
+                    <div class="condition-card">
+                        <h3><i class="fas fa-memory"></i> Neurodegenerative Diseases</h3>
+                        <p>Comprehensive management of Alzheimer's, dementia, ALS, and other progressive neurological conditions.</p>
+                    </div>
+                </div>
+
+                <!-- Diagnostic Section -->
+                <div class="diagnostic-section" id="diagnostics">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Advanced Neurological Diagnostics</h2>
+                            <p>State-of-the-art diagnostic technology for accurate neurological assessment</p>
+                        </div>
+                        <div class="diagnostic-grid">
+                            <div class="diagnostic-card">
+                                <div class="diagnostic-icon">
+                                    <i class="fas fa-magnet"></i>
+                                </div>
+                                <h3>MRI & fMRI</h3>
+                                <p>High-resolution brain and spine imaging including functional MRI for brain activity mapping.</p>
+                            </div>
+                            <div class="diagnostic-card">
+                                <div class="diagnostic-icon">
+                                    <i class="fas fa-wave-square"></i>
+                                </div>
+                                <h3>CT Scanning</h3>
+                                <p>Advanced computed tomography for rapid assessment of strokes, hemorrhages, and traumatic injuries.</p>
+                            </div>
+                            <div class="diagnostic-card">
+                                <div class="diagnostic-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h3>EEG & Video Monitoring</h3>
+                                <p>Comprehensive electroencephalography for seizure detection and brain function assessment.</p>
+                            </div>
+                            <div class="diagnostic-card">
+                                <div class="diagnostic-icon">
+                                    <i class="fas fa-vial"></i>
+                                </div>
+                                <h3>Lumbar Puncture</h3>
+                                <p>Cerebrospinal fluid analysis for diagnosis of infections, inflammation, and neurological disorders.</p>
+                            </div>
+                            <div class="diagnostic-card">
+                                <div class="diagnostic-icon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <h3>Nerve Conduction Studies</h3>
+                                <p>Electromyography and nerve conduction velocity testing for peripheral nerve disorders.</p>
+                            </div>
+                            <div class="diagnostic-card">
+                                <div class="diagnostic-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Neuro-ophthalmology</h3>
+                                <p>Comprehensive visual system evaluation for neurological conditions affecting vision.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatments Grid -->
+                <div class="section-title" id="treatments">
+                    <h2>Neurological Treatments & Procedures</h2>
+                    <p>Comprehensive medical and surgical treatments for neurological conditions</p>
+                </div>
+                <div class="treatments-grid">
+                    <div class="treatment-card">
+                        <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Brain Surgery" class="treatment-img">
+                        <div class="treatment-content">
+                            <div class="treatment-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Brain Tumor Surgery</h3>
+                            <p>Advanced neurosurgical procedures for brain tumors including awake craniotomy and minimally invasive techniques.</p>
+                            <ul class="treatment-features">
+                                <li><i class="fas fa-check"></i> Awake craniotomy</li>
+                                <li><i class="fas fa-check"></i> Endoscopic surgery</li>
+                                <li><i class="fas fa-check"></i> Laser ablation</li>
+                                <li><i class="fas fa-check"></i> Intraoperative monitoring</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="treatment-card">
+                        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Stroke Care" class="treatment-img">
+                        <div class="treatment-content">
+                            <div class="treatment-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3>Stroke Intervention</h3>
+                            <p>Comprehensive stroke care including thrombectomy, thrombolysis, and neurocritical care.</p>
+                            <ul class="treatment-features">
+                                <li><i class="fas fa-check"></i> Mechanical thrombectomy</li>
+                                <li><i class="fas fa-check"></i> Thrombolytic therapy</li>
+                                <li><i class="fas fa-check"></i> Neurocritical care</li>
+                                <li><i class="fas fa-check"></i> Stroke rehabilitation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="treatment-card">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Spinal Surgery" class="treatment-img">
+                        <div class="treatment-content">
+                            <div class="treatment-icon">
+                                <i class="fas fa-spine"></i>
+                            </div>
+                            <h3>Spinal Surgery</h3>
+                            <p>Advanced procedures for spinal conditions including minimally invasive and complex reconstruction.</p>
+                            <ul class="treatment-features">
+                                <li><i class="fas fa-check"></i> Microdiscectomy</li>
+                                <li><i class="fas fa-check"></i> Spinal fusion</li>
+                                <li><i class="fas fa-check"></i> Artificial disc replacement</li>
+                                <li><i class="fas fa-check"></i> Scoliosis correction</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="treatment-card">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Epilepsy Treatment" class="treatment-img">
+                        <div class="treatment-content">
+                            <div class="treatment-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3>Epilepsy Management</h3>
+                            <p>Comprehensive epilepsy care including medication management, dietary therapy, and surgical options.</p>
+                            <ul class="treatment-features">
+                                <li><i class="fas fa-check"></i> Vagus nerve stimulation</li>
+                                <li><i class="fas fa-check"></i> Responsive neurostimulation</li>
+                                <li><i class="fas fa-check"></i> Epilepsy surgery</li>
+                                <li><i class="fas fa-check"></i> Ketogenic diet therapy</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="treatment-card">
+                        <img src="https://images.unsplash.com/photo-1516549655669-dfbf54c44a66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Movement Disorders" class="treatment-img">
+                        <div class="treatment-content">
+                            <div class="treatment-icon">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                            <h3>Movement Disorder Treatments</h3>
+                            <p>Advanced therapies for Parkinson's disease, essential tremor, and other movement disorders.</p>
+                            <ul class="treatment-features">
+                                <li><i class="fas fa-check"></i> Deep brain stimulation</li>
+                                <li><i class="fas fa-check"></i> Botulinum toxin therapy</li>
+                                <li><i class="fas fa-check"></i> Medication optimization</li>
+                                <li><i class="fas fa-check"></i> Advanced infusion therapies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="treatment-card">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Pediatric Neurology" class="treatment-img">
+                        <div class="treatment-content">
+                            <div class="treatment-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <h3>Pediatric Neurology</h3>
+                            <p>Specialized care for children with neurological conditions including epilepsy, developmental disorders, and genetic conditions.</p>
+                            <ul class="treatment-features">
+                                <li><i class="fas fa-check"></i> Developmental neurology</li>
+                                <li><i class="fas fa-check"></i> Pediatric epilepsy</li>
+                                <li><i class="fas fa-check"></i> Neuromuscular disorders</li>
+                                <li><i class="fas fa-check"></i> Neurogenetics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="stats">
+                    <div class="container">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">1,800+</div>
+                                <div class="stat-text">Neurosurgical Procedures Annually</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">94%</div>
+                                <div class="stat-text">Stroke Treatment Success Rate</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-text">Neurocritical Care Available</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">35+</div>
+                                <div class="stat-text">Neurology Specialists</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Section -->
+                <div class="research-section">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Neurology Research & Innovation</h2>
+                            <p>Advancing neurological care through cutting-edge research and clinical trials</p>
+                        </div>
+                        <div class="specialized-grid">
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h3>Clinical Trials</h3>
+                                <p>Access to innovative treatments and therapies through our extensive neurology clinical trials program.</p>
+                            </div>
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3>Translational Research</h3>
+                                <p>Bridging laboratory discoveries with clinical applications to develop new neurological treatments.</p>
+                            </div>
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h3>Neuroimaging Research</h3>
+                                <p>Advanced brain mapping and imaging techniques to understand neurological disorders.</p>
+                            </div>
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Collaborative Networks</h3>
+                                <p>Partnerships with leading neuroscience institutes and research centers worldwide.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rehabilitation Section -->
+                <div class="specialized-section" id="rehabilitation">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Neurological Rehabilitation</h2>
+                            <p>Comprehensive programs to restore function and support recovery after neurological conditions</p>
+                        </div>
+                        <div class="specialized-grid">
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <h3>Physical Therapy</h3>
+                                <p>Customized exercise programs to improve mobility, balance, and strength after neurological injury.</p>
+                            </div>
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h3>Speech & Language Therapy</h3>
+                                <p>Specialized therapy for communication disorders, swallowing difficulties, and cognitive-linguistic impairments.</p>
+                            </div>
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <h3>Occupational Therapy</h3>
+                                <p>Rehabilitation to improve daily living skills, cognitive function, and return to work after neurological conditions.</p>
+                            </div>
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <h3>Neuropsychology</h3>
+                                <p>Comprehensive cognitive assessment and rehabilitation for memory, attention, and executive function.</p>
+                            </div>
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-wheelchair"></i>
+                                </div>
+                                <h3>Mobility & Assistive Technology</h3>
+                                <p>Evaluation and training for mobility aids, adaptive equipment, and assistive technology.</p>
+                            </div>
+                            <div class="specialized-card">
+                                <div class="specialized-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h3>Community Reintegration</h3>
+                                <p>Programs to support successful return to home, work, and community activities after neurological conditions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment Approach Section -->
+                <div class="approach-section">
+                    <div class="container">
+                        <div class="approach-content">
+                            <div class="approach-img">
+                                <img src="https://images.unsplash.com/photo-1585435557343-3b092031d5ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Neurology Team">
+                            </div>
+                            <div class="approach-text">
+                                <h2>Our Multidisciplinary Approach</h2>
+                                <p>At BN Hospital Neurology, we believe in a team-based approach to neurological care, bringing together specialists from various fields to develop comprehensive treatment plans.</p>
+                                
+                                <ul class="approach-list">
+                                    <li>
+                                        <i class="fas fa-user-md"></i>
+                                        <div>
+                                            <h4>Neurologists & Neurosurgeons</h4>
+                                            <p>Our team includes specialists in stroke, epilepsy, movement disorders, neurosurgery, and neurocritical care.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-stethoscope"></i>
+                                        <div>
+                                            <h4>Neurodiagnostic Specialists</h4>
+                                            <p>Highly skilled technicians and radiologists provide advanced imaging and diagnostic testing.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-dumbbell"></i>
+                                        <div>
+                                            <h4>Rehabilitation Team</h4>
+                                            <p>Physical, occupational, and speech therapists work together to maximize recovery and functional outcomes.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-hand-holding-medical"></i>
+                                        <div>
+                                            <h4>Comprehensive Care Coordination</h4>
+                                            <p>From diagnosis through recovery and long-term management, we provide seamless coordination of care.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specialists Section -->
+                <div class="specialists-section" id="specialists">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Our Neurology Specialists</h2>
+                            <p>Meet our team of leading neurologists and neurosurgeons</p>
+                        </div>
+                        <div class="specialists-grid">
+                            <div class="specialist-card">
+                                <div class="specialist-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="specialist-details">
+                                    <h4>Dr. Sarah Chen</h4>
+                                    <p>Consultant Neurologist & Department Head</p>
+                                    <div class="specialist-specialty">Stroke Neurology</div>
+                                    <p>Specializing in comprehensive stroke care and cerebrovascular diseases with 15+ years of experience.</p>
+                                </div>
+                            </div>
+                            <div class="specialist-card">
+                                <div class="specialist-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="specialist-details">
+                                    <h4>Dr. Michael Adebayo</h4>
+                                    <p>Consultant Neurosurgeon</p>
+                                    <div class="specialist-specialty">Brain Tumor Surgery</div>
+                                    <p>Expert in minimally invasive brain surgery and complex skull base procedures with extensive research experience.</p>
+                                </div>
+                            </div>
+                            <div class="specialist-card">
+                                <div class="specialist-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="specialist-details">
+                                    <h4>Dr. Emily Watson</h4>
+                                    <p>Consultant Neurologist</p>
+                                    <div class="specialist-specialty">Epilepsy & Seizure Disorders</div>
+                                    <p>Specializing in comprehensive epilepsy management including surgical evaluation and advanced monitoring.</p>
+                                </div>
+                            </div>
+                            <div class="specialist-card">
+                                <div class="specialist-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="specialist-details">
+                                    <h4>Dr. Robert Kim</h4>
+                                    <p>Consultant Neurologist</p>
+                                    <div class="specialist-specialty">Movement Disorders</div>
+                                    <p>Leading our deep brain stimulation program with expertise in Parkinson's disease and tremor disorders.</p>
+                                </div>
+                            </div>
+                            <div class="specialist-card">
+                                <div class="specialist-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="specialist-details">
+                                    <h4>Dr. Lisa Goldberg</h4>
+                                    <p>Consultant Neurologist</p>
+                                    <div class="specialist-specialty">Multiple Sclerosis & Neuroimmunology</div>
+                                    <p>Specializing in autoimmune neurological disorders with focus on advanced treatment approaches.</p>
+                                </div>
+                            </div>
+                            <div class="specialist-card">
+                                <div class="specialist-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="specialist-details">
+                                    <h4>Dr. James Richardson</h4>
+                                    <p>Consultant Neurosurgeon</p>
+                                    <div class="specialist-specialty">Spinal Surgery</div>
+                                    <p>Expert in complex spinal reconstruction, minimally invasive techniques, and spinal cord injury treatment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="cta" id="appointment">
+                    <div class="container">
+                        <div class="cta-content">
+                            <h2>Take the First Step Toward Better Brain Health</h2>
+                            <p>Schedule a consultation with our neurology specialists for comprehensive neurological assessment and personalized treatment planning</p>
+                            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                                <a href="book-online.html" class="btn-primary"><i class="fas fa-calendar-plus"></i> Book Neurological Assessment</a>
+                                <a href="contact.html" class="btn-secondary"><i class="fas fa-phone-alt"></i> Speak to Our Neurology Team</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BN Hospital London</h3>
+                    <p>Providing exceptional private healthcare services with compassion and cutting-edge technology in the heart of London since 1985.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="why-bn.html"><i class="fas fa-chevron-right"></i> Why BN Hospital</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="history.html"><i class="fas fa-chevron-right"></i> Our History</a></li>
+                        <li><a href="facilities.html"><i class="fas fa-chevron-right"></i> Facilities</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Treatments</a></li>
+                        <li><a href="book-online.html"><i class="fas fa-chevron-right"></i> Book Online</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Neurology Services</h4>
+                    <ul>
+                        <li><a href="#conditions"><i class="fas fa-chevron-right"></i> Neurological Conditions</a></li>
+                        <li><a href="#diagnostics"><i class="fas fa-chevron-right"></i> Neurological Diagnostics</a></li>
+                        <li><a href="#treatments"><i class="fas fa-chevron-right"></i> Neurological Treatments</a></li>
+                        <li><a href="#rehabilitation"><i class="fas fa-chevron-right"></i> Neurological Rehabilitation</a></li>
+                        <li><a href="#specialists"><i class="fas fa-chevron-right"></i> Our Neurology Specialists</a></li>
+                        <li><a href="#appointment"><i class="fas fa-chevron-right"></i> Book Assessment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Harley Street, London W1G 8AB</p>
+                        <p><i class="fas fa-phone"></i> 020 7123 4567</p>
+                        <p><i class="fas fa-envelope"></i> neurology@bnhospitallondon.com</p>
+                        <p><i class="fas fa-clock"></i> 24/7 Neurology Emergency Care</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 BN Hospital London. All Rights Reserved.</p>
+                    <div class="footer-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="sitemap.html">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navbar = document.querySelector('.navbar ul');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navbar.style.display = navbar.style.display === 'flex' ? 'none' : 'flex';
+                mobileMenuBtn.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.navbar ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) {
+                        navbar.style.display = 'none';
+                        mobileMenuBtn.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Adjust menu for window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    navbar.style.display = 'flex';
+                } else {
+                    navbar.style.display = 'none';
+                }
+            });
+
+            // Add animation to elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll('.treatment-card, .specialized-card, .approach-list li, .specialist-card, .condition-card, .diagnostic-card');
+            animateElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+
+            // Add staggered animation for treatment cards
+            const treatmentCards = document.querySelectorAll('.treatment-card');
+            treatmentCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            // Add staggered animation for specialized cards
+            const specializedCards = document.querySelectorAll('.specialized-card');
+            specializedCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>

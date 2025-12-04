@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Facilities & Services | BN Hospital London</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #005EB8;
+            --primary-dark: #003087;
+            --secondary: #41B6E6;
+            --accent: #FFB81C;
+            --text: #333333;
+            --text-light: #666666;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #e0e0e0;
+            --dark-gray: #757575;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent), #ffcc5c);
+            color: var(--primary-dark);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 184, 28, 0.4);
+            position: relative;
+            overflow: hidden;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 184, 28, 0.6);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 94, 184, 0.3);
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 94, 184, 0.4);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+            margin-top: -5px;
+        }
+
+        .navbar ul {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin-left: 25px;
+        }
+
+        .navbar ul li a {
+            font-weight: 500;
+            color: var(--text);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary);
+        }
+
+        .navbar ul li a.btn-primary {
+            color: var(--primary-dark);
+        }
+
+        .navbar ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .navbar ul li a:hover:after {
+            width: 100%;
+        }
+
+        .navbar ul li a.btn-primary:after {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(0, 94, 184, 0.85), rgba(0, 48, 135, 0.9)), url('https://images.unsplash.com/photo-1516549655669-dfbf54c44a66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* Facilities Grid */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .facility-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .facility-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .facility-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .facility-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .facility-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .facility-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .facility-features {
+            margin-top: 20px;
+        }
+
+        .facility-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .facility-features i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Specialized Centers */
+        .centers-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 94, 184, 0.03), rgba(0, 94, 184, 0.03));
+        }
+
+        .centers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .center-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+
+        .center-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .center-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .center-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Technology Section */
+        .technology-section {
+            padding: 80px 0;
+        }
+
+        .technology-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .technology-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .technology-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .technology-img:hover img {
+            transform: scale(1.03);
+        }
+
+        .technology-text h2 {
+            font-size: 2.3rem;
+            margin-bottom: 25px;
+        }
+
+        .technology-text > p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .technology-list {
+            margin-top: 20px;
+        }
+
+        .technology-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .technology-list li:hover {
+            background: var(--white);
+            transform: translateX(5px);
+        }
+
+        .technology-list i {
+            color: var(--secondary);
+            margin-right: 15px;
+            margin-top: 5px;
+            font-size: 1.2rem;
+        }
+
+        .technology-list h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .technology-list p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Patient Accommodation */
+        .accommodation-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 94, 184, 0.03), rgba(0, 94, 184, 0.03));
+        }
+
+        .accommodation-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .accommodation-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .accommodation-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .accommodation-img:hover img {
+            transform: scale(1.03);
+        }
+
+        .accommodation-text h2 {
+            font-size: 2.3rem;
+            margin-bottom: 25px;
+        }
+
+        .accommodation-text > p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .accommodation-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .accommodation-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .accommodation-feature i {
+            color: var(--secondary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            margin: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(0, 94, 184, 0.9), rgba(0, 48, 135, 0.9)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--white);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(135deg, #d32f2f, #b71c1c);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1a2530;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-section h4:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-info i {
+            margin-right: 12px;
+            color: var(--accent);
+            margin-top: 5px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+        }
+
+        .footer-links a {
+            margin-left: 25px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Professional Enhancements */
+        .accreditations {
+            background-color: var(--light);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .accreditations h3 {
+            margin-bottom: 40px;
+            color: var(--primary-dark);
+        }
+        
+        .accreditation-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .accreditation-logo {
+            height: 80px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .accreditation-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .quality-indicators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .quality-indicator {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .quality-indicator:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .quality-indicator i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .quality-indicator h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .quality-indicator p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        .facility-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .navbar ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .technology-content,
+            .accommodation-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .accommodation-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .footer-links {
+                margin-top: 15px;
+            }
+            
+            .footer-links a {
+                margin: 0 12px;
+            }
+            
+            .accreditation-logos {
+                gap: 30px;
+            }
+            
+            .accreditation-logo {
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 100px 0;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-content {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .centers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .quality-indicators {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .accreditation-logos {
+                gap: 20px;
+            }
+            
+            .accreditation-logo {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        <div class="container">
+            <i class="fas fa-phone-alt"></i> For Medical Emergencies: Call 020 7123 4567 | 24/7 Emergency Department
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>BN Hospital London</h1>
+                    <p>Premier Private Healthcare</p>
+                </div>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="why-bn.html">Why BN Hospital</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="facilities.html" class="active">Facilities</a></li>
+                    <li><a href="treatments.html">Treatments</a></li>
+                    <li><a href="book-online.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Our State-of-the-Art Facilities</h1>
+                <p>Discover our cutting-edge medical technology, specialized centers, and patient-focused amenities designed for exceptional healthcare experiences</p>
+            </div>
+        </section>
+
+        <!-- Page Content -->
+        <section class="page-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Medical Facilities & Services</h2>
+                    <p>Comprehensive healthcare infrastructure designed for excellence in patient care</p>
+                </div>
+
+                <!-- Facilities Grid -->
+                <div class="facilities-grid">
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Emergency Department" class="facility-img">
+                        <div class="facility-content">
+                            <div class="facility-icon">
+                                <i class="fas fa-ambulance"></i>
+                            </div>
+                            <h3>24/7 Emergency Department</h3>
+                            <p>Our fully-equipped emergency department is staffed round the clock by experienced emergency medicine specialists, ready to handle any medical crisis.</p>
+                            <ul class="facility-features">
+                                <li><i class="fas fa-check"></i> Trauma center with resuscitation bays</li>
+                                <li><i class="fas fa-check"></i> Dedicated pediatric emergency area</li>
+                                <li><i class="fas fa-check"></i> Rapid diagnostic imaging services</li>
+                                <li><i class="fas fa-check"></i> Direct admission to critical care units</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-card">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.3pYYM6la3a5GH2TB7mtKdgHaE7?pid=Api&P=0&h=220" alt="Operating Theaters" class="facility-img">
+                        <div class="facility-content">
+                            <div class="facility-icon">
+                                <i class="fas fa-procedures"></i>
+                            </div>
+                            <h3>Advanced Operating Theaters</h3>
+                            <p>State-of-the-art surgical suites equipped with the latest technology for minimally invasive and complex surgical procedures across all specialties.</p>
+                            <ul class="facility-features">
+                                <li><i class="fas fa-check"></i> Laminar airflow systems</li>
+                                <li><i class="fas fa-check"></i> Integrated robotic surgery systems</li>
+                                <li><i class="fas fa-check"></i> Advanced anesthesia monitoring</li>
+                                <li><i class="fas fa-check"></i> Hybrid operating rooms</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Diagnostic Imaging" class="facility-img">
+                        <div class="facility-content">
+                            <div class="facility-icon">
+                                <i class="fas fa-x-ray"></i>
+                            </div>
+                            <h3>Comprehensive Diagnostic Imaging</h3>
+                            <p>Advanced radiology department featuring cutting-edge imaging technology for accurate diagnosis and treatment planning.</p>
+                            <ul class="facility-features">
+                                <li><i class="fas fa-check"></i> 3T MRI and CT scanners</li>
+                                <li><i class="fas fa-check"></i> Digital mammography with tomosynthesis</li>
+                                <li><i class="fas fa-check"></i> PET-CT and nuclear medicine</li>
+                                <li><i class="fas fa-check"></i> Interventional radiology suite</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-card">
+                        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Intensive Care Unit" class="facility-img">
+                        <div class="facility-content">
+                            <div class="facility-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3>Critical Care Units</h3>
+                            <p>Specialized intensive care units providing advanced life support and monitoring for critically ill patients.</p>
+                            <ul class="facility-features">
+                                <li><i class="fas fa-check"></i> Medical and surgical ICUs</li>
+                                <li><i class="fas fa-check"></i> Cardiac care unit with telemetry</li>
+                                <li><i class="fas fa-check"></i> Neonatal and pediatric ICUs</li>
+                                <li><i class="fas fa-check"></i> High-dependency step-down units</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-card">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.8oE_UwBGGzTTAC3xPCPnrAAAAA?pid=Api&P=0&h=220" alt="Maternity Ward" class="facility-img">
+                        <div class="facility-content">
+                            <div class="facility-icon">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                            <h3>Family-Centered Maternity Care</h3>
+                            <p>Comprehensive obstetric services in a comfortable, home-like environment designed for the entire family.</p>
+                            <ul class="facility-features">
+                                <li><i class="fas fa-check"></i> Labor-delivery-recovery suites</li>
+                                <li><i class="fas fa-check"></i> Level III neonatal intensive care</li>
+                                <li><i class="fas fa-check"></i> Water birth facilities</li>
+                                <li><i class="fas fa-check"></i> Lactation consultation services</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-card">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.t-ou6HZKDPdlcqMRZQn24gHaF7?pid=Api&P=0&h=220" alt="Rehabilitation Center" class="facility-img">
+                        <div class="facility-content">
+                            <div class="facility-icon">
+                                <i class="fas fa-wheelchair"></i>
+                            </div>
+                            <h3>Comprehensive Rehabilitation Center</h3>
+                            <p>Multidisciplinary rehabilitation services to help patients regain function and independence after illness or injury.</p>
+                            <ul class="facility-features">
+                                <li><i class="fas fa-check"></i> Physical and occupational therapy</li>
+                                <li><i class="fas fa-check"></i> Speech and language pathology</li>
+                                <li><i class="fas fa-check"></i> Hydrotherapy pool</li>
+                                <li><i class="fas fa-check"></i> Gymnasium with specialized equipment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="stats">
+                    <div class="container">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">12</div>
+                                <div class="stat-text">Operating Theaters</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">150+</div>
+                                <div class="stat-text">Patient Rooms</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-text">Emergency Services</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">5</div>
+                                <div class="stat-text">ICU Specialties</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quality Indicators -->
+                <div class="section-title">
+                    <h2>Quality & Safety Indicators</h2>
+                    <p>Our commitment to excellence is reflected in our quality metrics and patient safety standards</p>
+                </div>
+                
+                <div class="quality-indicators">
+                    <div class="quality-indicator">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Infection Prevention</h4>
+                        <p>99.8% compliance with hand hygiene protocols and 0.5% surgical site infection rate</p>
+                    </div>
+                    <div class="quality-indicator">
+                        <i class="fas fa-user-md"></i>
+                        <h4>Clinical Excellence</h4>
+                        <p>95% patient satisfaction rate and 98% physician board certification rate</p>
+                    </div>
+                    <div class="quality-indicator">
+                        <i class="fas fa-clock"></i>
+                        <h4>Timely Care</h4>
+                        <p>Average emergency department wait time of 15 minutes for urgent cases</p>
+                    </div>
+                    <div class="quality-indicator">
+                        <i class="fas fa-award"></i>
+                        <h4>Accreditation</h4>
+                        <p>Fully accredited by leading healthcare quality organizations</p>
+                    </div>
+                </div>
+
+                <!-- Specialized Centers Section -->
+                <div class="centers-section">
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Specialized Medical Centers</h2>
+                            <p>Dedicated centers of excellence for comprehensive specialty care</p>
+                        </div>
+                        <div class="centers-grid">
+                            <div class="center-card">
+                                <div class="center-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h3>Cardiac Center</h3>
+                                <p>Comprehensive cardiovascular care including interventional cardiology, cardiac surgery, and rehabilitation.</p>
+                            </div>
+                            <div class="center-card">
+                                <div class="center-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3>Neuroscience Institute</h3>
+                                <p>Advanced neurological and neurosurgical care for brain and spine conditions with cutting-edge technology.</p>
+                            </div>
+                            <div class="center-card">
+                                <div class="center-icon">
+                                    <i class="fas fa-dna"></i>
+                                </div>
+                                <h3>Oncology Center</h3>
+                                <p>Multidisciplinary cancer care featuring radiation oncology, chemotherapy, and surgical oncology services.</p>
+                            </div>
+                            <div class="center-card">
+                                <div class="center-icon">
+                                    <i class="fas fa-bone"></i>
+                                </div>
+                                <h3>Orthopedic Institute</h3>
+                                <p>Comprehensive bone and joint care including joint replacement, sports medicine, and spine surgery.</p>
+                            </div>
+                            <div class="center-card">
+                                <div class="center-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Vision Center</h3>
+                                <p>Complete ophthalmology services from routine eye care to complex retinal and corneal surgeries.</p>
+                            </div>
+                            <div class="center-card">
+                                <div class="center-icon">
+                                    <i class="fas fa-tooth"></i>
+                                </div>
+                                <h3>Dental & Oral Health</h3>
+                                <p>Comprehensive dental care including cosmetic dentistry, oral surgery, and implantology.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Section -->
+                <div class="technology-section">
+                    <div class="container">
+                        <div class="technology-content">
+                            <div class="technology-img">
+                                <img src="https://images.unsplash.com/photo-1516549655669-dfbf54c44a66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Advanced Medical Technology">
+                            </div>
+                            <div class="technology-text">
+                                <h2>Cutting-Edge Medical Technology</h2>
+                                <p>BN Hospital invests in the latest medical technology to ensure accurate diagnoses, effective treatments, and optimal patient outcomes.</p>
+                                
+                                <ul class="technology-list">
+                                    <li>
+                                        <i class="fas fa-robot"></i>
+                                        <div>
+                                            <h4>Robotic Surgery Systems</h4>
+                                            <p>Da Vinci surgical systems for minimally invasive procedures with enhanced precision and faster recovery.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-magnet"></i>
+                                        <div>
+                                            <h4>Advanced Imaging</h4>
+                                            <p>3T MRI, dual-energy CT, and PET-CT scanners for detailed diagnostic imaging and treatment planning.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-microscope"></i>
+                                        <div>
+                                            <h4>Laboratory Services</h4>
+                                            <p>Fully automated laboratory with molecular diagnostics and genetic testing capabilities.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-laptop-medical"></i>
+                                        <div>
+                                            <h4>Digital Health Platform</h4>
+                                            <p>Integrated electronic health records and telemedicine services for seamless patient care.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Accommodation Section -->
+                <div class="accommodation-section">
+                    <div class="container">
+                        <div class="accommodation-content">
+                            <div class="accommodation-text">
+                                <h2>Patient-Focused Accommodation</h2>
+                                <p>Our patient rooms and amenities are designed to provide comfort, privacy, and a healing environment during your stay at BN Hospital.</p>
+                                
+                                <div class="accommodation-features">
+                                    <div class="accommodation-feature">
+                                        <i class="fas fa-bed"></i>
+                                        <span>Private rooms with ensuite facilities</span>
+                                    </div>
+                                    <div class="accommodation-feature">
+                                        <i class="fas fa-wifi"></i>
+                                        <span>Complimentary Wi-Fi and entertainment</span>
+                                    </div>
+                                    <div class="accommodation-feature">
+                                        <i class="fas fa-utensils"></i>
+                                        <span>Gourmet meal options</span>
+                                    </div>
+                                    <div class="accommodation-feature">
+                                        <i class="fas fa-user-friends"></i>
+                                        <span>Family accommodation options</span>
+                                    </div>
+                                    <div class="accommodation-feature">
+                                        <i class="fas fa-parking"></i>
+                                        <span>Complimentary valet parking</span>
+                                    </div>
+                                    <div class="accommodation-feature">
+                                        <i class="fas fa-spa"></i>
+                                        <span>Wellness and relaxation areas</span>
+                                    </div>
+                                </div>
+                                <div class="facility-cta">
+                                    <a href="book-online.html" class="btn-primary"><i class="fas fa-calendar-plus"></i> Schedule a Facility Tour</a>
+                                </div>
+                            </div>
+                            <div class="accommodation-img">
+                                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Patient Room">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Accreditations Section -->
+                <div class="accreditations">
+                    <div class="container">
+                        <h3>Accreditations & Certifications</h3>
+                        <div class="accreditation-logos">
+                            <!-- These would be replaced with actual accreditation logos -->
+                            <div class="accreditation-logo" style="background-color: #fff; width: 120px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; color: var(--primary);">JCI</div>
+                            <div class="accreditation-logo" style="background-color: #fff; width: 120px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; color: var(--primary);">ISO 9001</div>
+                            <div class="accreditation-logo" style="background-color: #fff; width: 120px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; color: var(--primary);">CQC</div>
+                            <div class="accreditation-logo" style="background-color: #fff; width: 120px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; color: var(--primary);">HSJ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="cta">
+                    <div class="container">
+                        <div class="cta-content">
+                            <h2>Experience Our World-Class Facilities</h2>
+                            <p>Book a tour of our facilities or schedule a consultation with our specialists to learn how we can address your healthcare needs</p>
+                            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                                <a href="book-online.html" class="btn-primary"><i class="fas fa-calendar-plus"></i> Book Appointment</a>
+                                <a href="treatments.html" class="btn-secondary"><i class="fas fa-stethoscope"></i> Our Treatments</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BN Hospital London</h3>
+                    <p>Providing exceptional private healthcare services with compassion and cutting-edge technology in the heart of London since 1985.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="why-bn.html"><i class="fas fa-chevron-right"></i> Why BN Hospital</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="history.html"><i class="fas fa-chevron-right"></i> Our History</a></li>
+                        <li><a href="facilities.html"><i class="fas fa-chevron-right"></i> Facilities</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Treatments</a></li>
+                        <li><a href="book-online.html"><i class="fas fa-chevron-right"></i> Book Online</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Medical Services</h4>
+                    <ul>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Private GP</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Urology</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Back Pain Treatment</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> General Surgery</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Physiotherapy</a></li>
+                        <li><a href="treatments.html"><i class="fas fa-chevron-right"></i> Emergency Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Harley Street, London W1G 8AB</p>
+                        <p><i class="fas fa-phone"></i> 020 7123 4567</p>
+                        <p><i class="fas fa-envelope"></i> info@bnhospitallondon.com</p>
+                        <p><i class="fas fa-clock"></i> 24/7 Emergency Services</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 BN Hospital London. All Rights Reserved.</p>
+                    <div class="footer-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="sitemap.html">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navbar = document.querySelector('.navbar ul');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navbar.style.display = navbar.style.display === 'flex' ? 'none' : 'flex';
+                mobileMenuBtn.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.navbar ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) {
+                        navbar.style.display = 'none';
+                        mobileMenuBtn.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Adjust menu for window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    navbar.style.display = 'flex';
+                } else {
+                    navbar.style.display = 'none';
+                }
+            });
+
+            // Add animation to elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll('.facility-card, .center-card, .technology-list li, .accommodation-feature, .quality-indicator');
+            animateElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+
+            // Add staggered animation for facility cards
+            const facilityCards = document.querySelectorAll('.facility-card');
+            facilityCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            // Add staggered animation for center cards
+            const centerCards = document.querySelectorAll('.center-card');
+            centerCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
