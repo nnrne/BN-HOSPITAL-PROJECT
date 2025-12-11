@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NHS Patients | BN Hospital London</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--primary:#005EB8;
+--primary-dark:#003087;
+--secondary:#41B6E6;
+--accent:#FFB81C;
+--text:#333;
+--text-light:#666;
+--light:#f8f9fa;
+--white:#fff;
+--shadow:0 4px 15px rgba(0,0,0,.1);
+--shadow-lg:0 10px 30px rgba(0,0,0,.15);
+--transition:0.3s ease;
+}
+
+body{
+font-family:'Open Sans',sans-serif;
+color:var(--text);
+line-height:1.7;
+background:var(--light)
+}
+
+h1,h2,h3{
+font-family:'Montserrat',sans-serif;
+color:var(--primary-dark)
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px
+}
+
+/* NAV */
+nav{
+background:var(--white);
+box-shadow:var(--shadow);
+position:sticky;top:0;z-index:1000
+}
+.nav-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0
+}
+nav ul{
+display:flex;
+gap:30px;
+list-style:none
+}
+nav a{
+text-decoration:none;
+font-weight:600;
+color:var(--text)
+}
+nav a:hover{color:var(--primary)}
+
+/* HERO */
+.hero{
+background:
+linear-gradient(rgba(0,94,184,.85),rgba(0,48,135,.9)),
+url('https://images.unsplash.com/photo-1582719478148-d0420a0f9b7f') center/cover;
+padding:120px 0;
+color:var(--white);
+text-align:center
+}
+.hero h1{
+color:white;
+font-size:3.2rem;
+margin-bottom:20px
+}
+.hero p{
+max-width:800px;
+margin:auto;
+font-size:1.2rem
+}
+
+/* SECTIONS */
+.section{
+background:var(--white);
+margin:60px auto;
+padding:60px;
+border-radius:14px;
+box-shadow:var(--shadow)
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px
+}
+.section-title h2{
+font-size:2.5rem
+}
+.section-title p{
+max-width:800px;
+margin:15px auto;
+color:var(--text-light)
+}
+
+/* IMAGE GRID */
+.image-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px
+}
+.image-grid img{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:12px;
+box-shadow:var(--shadow)
+}
+
+/* INFO GRID */
+.info-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center
+}
+.info-grid img{
+width:100%;
+border-radius:12px;
+box-shadow:var(--shadow-lg)
+}
+
+/* CARDS */
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px
+}
+.info-card{
+background:var(--white);
+border-radius:14px;
+padding:30px;
+box-shadow:var(--shadow);
+transition:var(--transition);
+border-top:5px solid var(--primary)
+}
+.info-card:hover{
+transform:translateY(-6px);
+box-shadow:var(--shadow-lg)
+}
+
+/* STATS */
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:40px;
+text-align:center
+}
+.stat h3{
+font-size:3rem;
+color:var(--primary)
+}
+
+/* LIST */
+.check-list li{
+margin-bottom:12px;
+color:var(--text-light)
+}
+
+/* CTA */
+.cta{
+background:
+linear-gradient(rgba(0,94,184,.9),rgba(0,48,135,.9)),
+url('https://images.unsplash.com/photo-1599045118108-b4b0c0ec6a67') center/cover;
+padding:100px 20px;
+color:white;
+text-align:center
+}
+.cta h2{color:white;font-size:2.6rem}
+.cta p{max-width:700px;margin:20px auto}
+.cta button{
+background:linear-gradient(135deg,var(--accent),#ffd66c);
+border:none;
+padding:16px 36px;
+border-radius:10px;
+font-size:1.1rem;
+font-weight:700;
+cursor:pointer
+}
+
+/* FOOTER */
+footer{
+background:#1a2530;
+color:white;
+text-align:center;
+padding:40px 20px
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-content">
+<h2>BN Hospital London</h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Find a Consultant</a></li>
+<li><a href="#">NHS Patients</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<section class="hero">
+<h1>NHS Patients</h1>
+<p>Working in partnership with the NHS to provide timely, high-quality care for eligible patients.</p>
+</section>
+
+<div class="container">
+
+<section class="section">
+<div class="section-title">
+<h2>NHS Care at BN Hospital London</h2>
+<p>BN Hospital London proudly supports NHS patients by delivering safe, effective and compassionate care within NHS pathways.</p>
+</div>
+
+<div class="info-grid">
+<div>
+<p>We work in collaboration with NHS commissioners and trusts to ensure patients receive access to specialist services, reduced waiting times and excellent clinical outcomes.</p>
+<ul class="check-list">
+<li>✔ NHS-funded treatments</li>
+<li>✔ GMC-registered consultants</li>
+<li>✔ Modern facilities and equipment</li>
+<li>✔ Patient-centred care pathways</li>
+</ul>
+</div>
+<img src="https://images.unsplash.com/photo-1580281657527-47f249e8f9f9">
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>NHS Services We Provide</h2>
+<p>A range of NHS-approved medical and surgical services tailored to patient needs.</p>
+</div>
+
+<div class="card-grid">
+<div class="info-card">
+<h3>General Surgery</h3>
+<p>Elective surgeries delivered in partnership with NHS trusts to support reduced waiting lists.</p>
+</div>
+
+<div class="info-card">
+<h3>Orthopaedics</h3>
+<p>Joint replacements, fracture treatment and rehabilitation programmes.</p>
+</div>
+
+<div class="info-card">
+<h3>Diagnostics</h3>
+<p>Rapid access to imaging and diagnostic testing using NHS-approved pathways.</p>
+</div>
+
+<div class="info-card">
+<h3>Physiotherapy</h3>
+<p>Post-operative and long-term rehabilitation funded through NHS referrals.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Our NHS Facilities</h2>
+<p>High-quality environments designed to meet NHS clinical standards.</p>
+</div>
+
+<div class="image-grid">
+<img src="https://source.unsplash.com/800x600/?hospital,ward">
+<img src="https://source.unsplash.com/800x600/?nurse,patient">
+<img src="https://source.unsplash.com/800x600/?medical,clinic">
+<img src="https://source.unsplash.com/800x600/?hospital,interior">
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Your NHS Patient Journey</h2>
+<p>Clear and supportive care from referral to recovery.</p>
+</div>
+
+<div class="card-grid">
+<div class="info-card">
+<h3>Referral</h3>
+<p>Patients are referred through their NHS GP or consultant.</p>
+</div>
+
+<div class="info-card">
+<h3>Assessment</h3>
+<p>Comprehensive consultation and diagnostic review.</p>
+</div>
+
+<div class="info-card">
+<h3>Treatment</h3>
+<p>All approved procedures delivered by experienced specialists.</p>
+</div>
+
+<div class="info-card">
+<h3>Aftercare</h3>
+<p>Follow-up and rehabilitation aligned with NHS standards.</p>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><h3>10,000+</h3><p>NHS Patients Treated</p></div>
+<div class="stat"><h3>20+</h3><p>NHS Partnerships</p></div>
+<div class="stat"><h3>98%</h3><p>Patient Satisfaction</p></div>
+<div class="stat"><h3>15+</h3><p>Years Supporting NHS</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Frequently Asked Questions</h2>
+</div>
+
+<p><strong>Do NHS patients pay for treatment?</strong><br>
+No. All approved NHS treatments are fully funded.</p>
+
+<p><strong>Can I choose BN Hospital London?</strong><br>
+Yes, patients may be offered BN Hospital London as part of NHS choice.</p>
+
+<p><strong>Is care different from private patients?</strong><br>
+Clinical quality and safety standards are the same for all patients.</p>
+</section>
+
+</div>
+
+<section class="cta">
+<h2>NHS Referrals Welcome</h2>
+<p>If you are an NHS patient or healthcare professional, contact us to learn more about referrals.</p>
+<button>Contact NHS Team</button>
+</section>
+
+<footer>
+<p>BN Hospital London © 2025 — All Rights Reserved</p>
+<p>123 London Street • +44 020 1234 5678</p>
+</footer>
+
+</body>
+</html>

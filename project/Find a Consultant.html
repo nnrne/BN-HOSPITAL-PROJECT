@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find a Consultant | BN Hospital London</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--primary:#005EB8;
+--primary-dark:#003087;
+--secondary:#41B6E6;
+--accent:#FFB81C;
+--text:#333;
+--text-light:#666;
+--light:#f8f9fa;
+--white:#fff;
+--shadow:0 4px 15px rgba(0,0,0,.1);
+--shadow-lg:0 10px 30px rgba(0,0,0,.15);
+--transition:0.3s ease;
+}
+
+body{
+font-family:'Open Sans',sans-serif;
+color:var(--text);
+line-height:1.7;
+background:var(--light)
+}
+
+h1,h2,h3{
+font-family:'Montserrat',sans-serif;
+color:var(--primary-dark)
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px
+}
+
+/* NAV */
+nav{
+background:var(--white);
+box-shadow:var(--shadow);
+position:sticky;top:0;z-index:1000
+}
+.nav-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0
+}
+nav ul{
+display:flex;
+gap:30px;
+list-style:none
+}
+nav a{
+text-decoration:none;
+font-weight:600;
+color:var(--text)
+}
+nav a:hover{color:var(--primary)}
+
+/* HERO */
+.hero{
+background:
+linear-gradient(rgba(0,94,184,.85),rgba(0,48,135,.9)),
+url('https://images.unsplash.com/photo-1622253692010-333f2da6031d') center/cover;
+padding:120px 0;
+color:var(--white);
+text-align:center
+}
+.hero h1{
+color:white;
+font-size:3.2rem;
+margin-bottom:20px
+}
+.hero p{
+max-width:800px;
+margin:auto;
+font-size:1.2rem
+}
+
+/* SECTIONS */
+.section{
+background:var(--white);
+margin:60px auto;
+padding:60px;
+border-radius:14px;
+box-shadow:var(--shadow)
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px
+}
+.section-title h2{
+font-size:2.5rem
+}
+.section-title p{
+max-width:700px;
+margin:15px auto;
+color:var(--text-light)
+}
+
+/* SEARCH */
+.search-box{
+display:grid;
+grid-template-columns:2fr 1fr 1fr auto;
+gap:15px;
+margin-top:30px
+}
+select,input{
+padding:14px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:1rem
+}
+.search-box button{
+background:linear-gradient(135deg,var(--accent),#ffd66c);
+border:none;
+border-radius:8px;
+padding:14px 28px;
+font-weight:700;
+cursor:pointer
+}
+
+/* CONSULTANTS */
+.consultant-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px
+}
+.consultant-card{
+background:var(--white);
+border-radius:14px;
+box-shadow:var(--shadow);
+overflow:hidden;
+transition:var(--transition)
+}
+.consultant-card:hover{
+transform:translateY(-8px);
+box-shadow:var(--shadow-lg)
+}
+.consultant-card img{
+width:100%;
+height:260px;
+object-fit:cover
+}
+.consultant-info{
+padding:25px
+}
+.consultant-info h3{
+margin-bottom:8px
+}
+.consultant-info span{
+color:var(--primary);
+font-weight:600
+}
+.consultant-info p{
+margin-top:12px;
+color:var(--text-light)
+}
+
+/* STATS */
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:40px;
+text-align:center
+}
+.stat h3{
+font-size:3rem;
+color:var(--primary)
+}
+
+/* WHY */
+.why-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center
+}
+.why-grid img{
+width:100%;
+border-radius:12px;
+box-shadow:var(--shadow-lg)
+}
+
+/* CTA */
+.cta{
+background:
+linear-gradient(rgba(0,94,184,.9),rgba(0,48,135,.9)),
+url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5') center/cover;
+padding:100px 20px;
+color:white;
+text-align:center
+}
+.cta h2{color:white;font-size:2.6rem}
+.cta p{max-width:700px;margin:20px auto}
+.cta button{
+background:linear-gradient(135deg,var(--accent),#ffd66c);
+border:none;
+padding:16px 36px;
+border-radius:10px;
+font-size:1.1rem;
+font-weight:700;
+cursor:pointer
+}
+
+/* FOOTER */
+footer{
+background:#1a2530;
+color:white;
+text-align:center;
+padding:40px 20px
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-content">
+<h2>BN Hospital London</h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Find a Consultant</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<section class="hero">
+<h1>Find a Consultant</h1>
+<p>Search and connect with our highly qualified consultants covering all major medical and surgical specialties.</p>
+</section>
+
+<div class="container">
+
+<section class="section">
+<div class="section-title">
+<h2>Search for a Specialist</h2>
+<p>Easily find the right consultant based on specialty, name or department.</p>
+</div>
+
+<div class="search-box">
+<input placeholder="Consultant name">
+<select><option>Specialty</option></select>
+<select><option>Department</option></select>
+<button>Search</button>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Our Consultants</h2>
+<p>BN Hospital London brings together the most experienced consultants with national and international recognition.</p>
+</div>
+
+<div class="consultant-grid">
+<div class="consultant-card">
+<img src="https://source.unsplash.com/600x600/?doctor,portrait">
+<div class="consultant-info">
+<h3>Dr. Amelia Carter</h3>
+<span>Consultant General Surgeon</span>
+<p>Over 15 years of experience in minimally invasive and laparoscopic surgery.</p>
+</div>
+</div>
+
+<div class="consultant-card">
+<img src="https://source.unsplash.com/600x600/?female,doctor">
+<div class="consultant-info">
+<h3>Dr. Sophia Bennett</h3>
+<span>Consultant Neurologist</span>
+<p>Specialist in stroke, neurological rehabilitation and complex diagnostics.</p>
+</div>
+</div>
+
+<div class="consultant-card">
+<img src="https://source.unsplash.com/600x600/?male,doctor">
+<div class="consultant-info">
+<h3>Mr. James Rowland</h3>
+<span>Orthopaedic Surgeon</span>
+<p>Expert in joint replacement, sports injuries and trauma care.</p>
+</div>
+</div>
+
+<div class="consultant-card">
+<img src="https://source.unsplash.com/600x600/?surgeon">
+<div class="consultant-info">
+<h3>Dr. Marcus Shields</h3>
+<span>Vascular Consultant</span>
+<p>Known for advanced vascular imaging and surgical interventions.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Why Choose Our Consultants?</h2>
+</div>
+
+<div class="why-grid">
+<div>
+<p>All our consultants are fully accredited specialists who combine clinical excellence with patient-centred care. We carefully select professionals who are leaders in their fields.</p>
+<ul>
+<li>✔ GMC registered consultants</li>
+<li>✔ Multidisciplinary collaboration</li>
+<li>✔ Evidence-based treatment plans</li>
+<li>✔ Dedicated patient support teams</li>
+</ul>
+</div>
+<img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0">
+</div>
+
+<div class="stats">
+<div class="stat"><h3>120+</h3><p>Consultants</p></div>
+<div class="stat"><h3>35+</h3><p>Specialties</p></div>
+<div class="stat"><h3>98%</h3><p>Patient Satisfaction</p></div>
+<div class="stat"><h3>25+</h3><p>Years of Excellence</p></div>
+</div>
+</section>
+
+</div>
+
+<section class="cta">
+<h2>Book an Appointment Today</h2>
+<p>Our care coordinators will help you connect with the most appropriate consultant for your condition.</p>
+<button>Request Appointment</button>
+</section>
+
+<footer>
+<p>BN Hospital London © 2025 — All Rights Reserved</p>
+<p>123 London Street • +44 020 1234 5678</p>
+</footer>
+
+</body>
+</html>

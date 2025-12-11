@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prices & Fees | BN Hospital London</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--primary:#005EB8;
+--primary-dark:#003087;
+--secondary:#41B6E6;
+--accent:#FFB81C;
+--text:#333;
+--text-light:#666;
+--light:#f8f9fa;
+--white:#fff;
+--shadow:0 4px 15px rgba(0,0,0,.1);
+--shadow-lg:0 10px 30px rgba(0,0,0,.15);
+--transition:0.3s ease;
+}
+
+body{
+font-family:'Open Sans',sans-serif;
+color:var(--text);
+line-height:1.7;
+background:var(--light)
+}
+
+h1,h2,h3{
+font-family:'Montserrat',sans-serif;
+color:var(--primary-dark)
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px
+}
+
+/* NAV */
+nav{
+background:var(--white);
+box-shadow:var(--shadow);
+position:sticky;top:0;z-index:1000
+}
+.nav-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0
+}
+nav ul{
+display:flex;
+gap:30px;
+list-style:none
+}
+nav a{
+text-decoration:none;
+font-weight:600;
+color:var(--text)
+}
+nav a:hover{color:var(--primary)}
+
+/* HERO */
+.hero{
+background:
+linear-gradient(rgba(0,94,184,.85),rgba(0,48,135,.9)),
+url('https://images.unsplash.com/photo-1580281657527-47f249e8f9f9') center/cover;
+padding:120px 0;
+color:var(--white);
+text-align:center
+}
+.hero h1{
+color:white;
+font-size:3.2rem;
+margin-bottom:20px
+}
+.hero p{
+max-width:800px;
+margin:auto;
+font-size:1.2rem
+}
+
+/* SECTIONS */
+.section{
+background:var(--white);
+margin:60px auto;
+padding:60px;
+border-radius:14px;
+box-shadow:var(--shadow)
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px
+}
+.section-title h2{
+font-size:2.5rem
+}
+.section-title p{
+max-width:700px;
+margin:15px auto;
+color:var(--text-light)
+}
+
+/* PRICE CARDS */
+.price-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px
+}
+.price-card{
+border-radius:14px;
+box-shadow:var(--shadow);
+padding:35px;
+transition:var(--transition);
+border-top:6px solid var(--primary);
+background:var(--white)
+}
+.price-card:hover{
+transform:translateY(-8px);
+box-shadow:var(--shadow-lg)
+}
+.price-card h3{
+margin-bottom:10px
+}
+.price{
+font-size:2.8rem;
+color:var(--primary);
+font-weight:700;
+margin:15px 0
+}
+.price-card ul{
+margin-top:20px
+}
+.price-card ul li{
+margin-bottom:12px;
+color:var(--text-light)
+}
+
+/* IMAGE GRID */
+.image-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px
+}
+.image-grid img{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:12px;
+box-shadow:var(--shadow)
+}
+
+/* TABLE */
+.price-table{
+width:100%;
+border-collapse:collapse;
+margin-top:30px
+}
+.price-table th,
+.price-table td{
+padding:16px;
+border-bottom:1px solid #ddd;
+text-align:left
+}
+.price-table th{
+background:var(--light);
+font-weight:700
+}
+
+/* FAQ */
+.faq-item{
+margin-bottom:25px
+}
+.faq-item h4{
+margin-bottom:8px
+}
+.faq-item p{
+color:var(--text-light)
+}
+
+/* CTA */
+.cta{
+background:
+linear-gradient(rgba(0,94,184,.9),rgba(0,48,135,.9)),
+url('https://images.unsplash.com/photo-1579684288361-5c1b800170f2') center/cover;
+padding:100px 20px;
+color:white;
+text-align:center
+}
+.cta h2{color:white;font-size:2.6rem}
+.cta p{max-width:700px;margin:20px auto}
+.cta button{
+background:linear-gradient(135deg,var(--accent),#ffd66c);
+border:none;
+padding:16px 36px;
+border-radius:10px;
+font-size:1.1rem;
+font-weight:700;
+cursor:pointer
+}
+
+/* FOOTER */
+footer{
+background:#1a2530;
+color:white;
+text-align:center;
+padding:40px 20px
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-content">
+<h2>BN Hospital London</h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Find a Consultant</a></li>
+<li><a href="#">Prices</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<section class="hero">
+<h1>Prices & Fees</h1>
+<p>Transparent, competitive and fair pricing across all services at BN Hospital London.</p>
+</section>
+
+<div class="container">
+
+<section class="section">
+<div class="section-title">
+<h2>Consultation Fees</h2>
+<p>Our pricing reflects consultant expertise, clinical excellence and personalised care.</p>
+</div>
+
+<div class="price-grid">
+<div class="price-card">
+<h3>Initial Consultation</h3>
+<p class="price">£200</p>
+<ul>
+<li>60-minute specialist appointment</li>
+<li>Full medical review</li>
+<li>Diagnostic discussion</li>
+<li>Personalised care plan</li>
+</ul>
+</div>
+
+<div class="price-card">
+<h3>Follow-Up Consultation</h3>
+<p class="price">£150</p>
+<ul>
+<li>45-minute session</li>
+<li>Progress assessment</li>
+<li>Treatment adjustments</li>
+<li>Ongoing support</li>
+</ul>
+</div>
+
+<div class="price-card">
+<h3>Video Consultation</h3>
+<p class="price">£120</p>
+<ul>
+<li>Remote appointment</li>
+<li>Secure video call</li>
+<li>Clinical advice</li>
+<li>Follow-up recommendations</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Our Facilities</h2>
+<p>State-of-the-art environments are included in our pricing with no hidden fees.</p>
+</div>
+
+<div class="image-grid">
+<img src="https://source.unsplash.com/800x600/?hospital,room">
+<img src="https://source.unsplash.com/800x600/?clinic,modern">
+<img src="https://source.unsplash.com/800x600/?medical,equipment">
+<img src="https://source.unsplash.com/800x600/?hospital,interior">
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Surgical & Treatment Pricing</h2>
+<p>Indicative pricing guide. Final costs depend on individual clinical requirements.</p>
+</div>
+
+<table class="price-table">
+<tr><th>Procedure</th><th>Estimated Price</th></tr>
+<tr><td>Day Surgery Procedures</td><td>From £2,500</td></tr>
+<tr><td>Orthopaedic Surgery</td><td>From £7,500</td></tr>
+<tr><td>General Surgery</td><td>From £5,000</td></tr>
+<tr><td>Physiotherapy Programme</td><td>From £350</td></tr>
+<tr><td>Diagnostic Imaging</td><td>From £180</td></tr>
+</table>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Insurance & Self-Pay Options</h2>
+<p>Flexible payment options are available to support our patients.</p>
+</div>
+
+<p>We work with most major UK and international insurers. Self-pay patients benefit from clear upfront pricing with no unexpected charges. Finance plans may be arranged for longer treatment journeys.</p>
+</section>
+
+<section class="section">
+<div class="section-title">
+<h2>Frequently Asked Questions</h2>
+</div>
+
+<div class="faq-item">
+<h4>Are there any hidden fees?</h4>
+<p>No. All pricing is explained clearly before treatment begins.</p>
+</div>
+
+<div class="faq-item">
+<h4>Do you accept private medical insurance?</h4>
+<p>Yes, we accept most UK and international insurers.</p>
+</div>
+
+<div class="faq-item">
+<h4>Can I receive a personalised quote?</h4>
+<p>Absolutely. Our care team will provide a detailed cost breakdown.</p>
+</div>
+</section>
+
+</div>
+
+<section class="cta">
+<h2>Request a Personalised Quote</h2>
+<p>Contact our billing team for a detailed and transparent cost estimate.</p>
+<button>Get a Quote</button>
+</section>
+
+<footer>
+<p>BN Hospital London © 2025 — All Rights Reserved</p>
+<p>123 London Street • +44 020 1234 5678</p>
+</footer>
+
+</body>
+</html>
